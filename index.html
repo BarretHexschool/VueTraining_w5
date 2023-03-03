@@ -21,6 +21,7 @@
 
   <body>
     <div id="app">
+      <loading v-model:active="visible" :can-cancel="true"></loading>
       <div class="container">
         <div class="mt-4">
           <!-- 產品Modal -->
@@ -255,6 +256,10 @@
     <script src="https://unpkg.com/vee-validate@next"></script>
     <script src="https://unpkg.com/@vee-validate/i18n@4.1.0"></script>
     <script src="https://unpkg.com/@vee-validate/rules"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@6"></script>
+<link href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@6/dist/css/index.css" rel="stylesheet">
+
     <script src="./js/config.js"></script>
     <script src="./js/index.js" type="module"></script>
   </body>

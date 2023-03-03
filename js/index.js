@@ -37,6 +37,7 @@ Vue.createApp({
         },
         message: "",
       },
+      visible: false,
     };
   },
   methods: {
@@ -45,6 +46,7 @@ Vue.createApp({
         .get(`${apiUrl}/v2/api/${apiPath}/products/all`)
         .then((res) => {
           this.products = res.data.products;
+          this.visible = false
         })
         .catch((err) => {
           alert(err.response.data.message);
@@ -148,6 +150,10 @@ Vue.createApp({
   mounted() {
     this.getProducts();
     this.getCartData();
+    this.visible = true
   },
 })
+.use(VueLoading.LoadingPlugin)
+.component('loading', VueLoading.Component)
 .mount("#app");
+
