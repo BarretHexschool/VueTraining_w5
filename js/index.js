@@ -77,8 +77,40 @@ const app = {
           alert(err.response.data.message);
         });
     },
-    upDateCart(cart) {
-      console.log(cart);
+    updateCart(cart) {
+      const { product_id, qty } = cart;
+      const data = {
+        product_id,
+        qty,
+      };
+      axios
+        .put(`${apiUrl}/v2/api/${apiPath}/cart/${cart.id}`, { data })
+        .then((res) => {
+          alert(res.data.message);
+        })
+        .catch((err) => {
+          alert(err.response.data.message);
+        });
+    },
+    cleanAllCart() {
+      axios
+        .delete(`${apiUrl}/v2/api/${apiPath}/carts`)
+        .then((res) => {
+          alert(res.data.message);
+        })
+        .catch((err) => {
+          alert(err.response.data.message);
+        });
+    },
+    deleteOneCart(cart_id) {
+      axios
+        .delete(`${apiUrl}/v2/api/${apiPath}/cart/${cart_id}`)
+        .then((res) => {
+          alert(res.data.message);
+        })
+        .catch((err) => {
+          alert(err.response.data.message);
+        });
     },
   },
   components: {
