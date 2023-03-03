@@ -71,14 +71,16 @@
                       type="button"
                       class="btn btn-outline-secondary"
                       @click="openModal(product.id)"
+                     
                     >
-                      <i class="fas fa-spinner fa-pulse"></i>
+                      <i class="fas fa-spinner fa-pulse" v-if="loadingItem === product.id"></i>
                       查看更多
                     </button>
                     <button type="button" class="btn btn-outline-danger"
                     @click="addToCart(product.id)"
-                    :disabled="product.id === loadingItem">
-                      <i class="fas fa-spinner fa-pulse"></i>
+                    :disabled="product.id === loadingItem"
+                    >
+                      <i class="fas fa-spinner fa-pulse" v-if="loadingItem === product.id"></i>
                       加到購物車
                     </button>
                   </div>
@@ -104,7 +106,7 @@
                 <tr v-for="cart in carts" :key="cart.id">
                   <td>
                     <button type="button" class="btn btn-outline-danger btn-sm" @click="deleteOneCart(cart.id)" :disabled="cart.id === loadingItem">
-                      <i class="fas fa-spinner fa-pulse"></i>
+                      <i class="fas fa-spinner fa-pulse" v-if="loadingItem === cart.id"></i>
                       x
                     </button>
                   </td>
