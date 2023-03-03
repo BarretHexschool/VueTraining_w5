@@ -1,0 +1,11 @@
+html, body {
+  height: 100%; /*外層高度100%*/
+  margin: 0;
+}
+.login-center{
+  min-height: calc(100vh - 50px)
+}
+ 
+.footer{
+    height: 50px;
+  }
